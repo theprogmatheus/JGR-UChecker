@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Data
 public class JGRUChecker {
 
-    private static final boolean disabled = System.getProperty("com.github.theprogmatheus.util.GithubReleaseUpdateChecker.disabled") != null;
+    private static final boolean disabled = System.getProperty("com.github.theprogmatheus.util.JGRUChecker.disabled") != null;
     private static final String apiUrl = "https://api.github.com/repos/%s/%s/releases/latest";
 
     private String username;
@@ -83,7 +83,6 @@ public class JGRUChecker {
         GithubRelease lastRelease = getLastRelease();
         return lastRelease != null && !lastRelease.getVersion().equals(this.currentVersion);
     }
-
 
     @Data
     @AllArgsConstructor

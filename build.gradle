@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'io.github.theprogmatheus'
-version = '1.0.0'
+group = 'com.github.theprogmatheus'
+version = '1.0.0-alpha'
 
 repositories {
     mavenCentral()
@@ -28,9 +28,9 @@ publishing {
     publications {
         gpr(MavenPublication) {
             from components.java
-            groupId = 'io.github.theprogmatheus'
+            groupId = group
             artifactId = 'jgr-uchecker'
-            version = '1.0.0'
+            version = version
         }
     }
     repositories {
