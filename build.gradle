@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
-group = 'com.github.theprogmatheus'
-version = '1.0-SNAPSHOT'
+group = 'io.github.theprogmatheus'
+version = '1.0.0'
 
 repositories {
     mavenCentral()
@@ -21,4 +22,25 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        gpr(MavenPublication) {
+            from components.java
+            groupId = 'io.github.theprogmatheus'
+            artifactId = 'jgr-uchecker'
+            version = '1.0.0'
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/theprogmatheus/JGR-UChecker")
+            credentials {
+                username = project.findProperty("gpr.username")
+                password = project.findProperty("gpr.token")
+            }
+        }
+    }
 }
