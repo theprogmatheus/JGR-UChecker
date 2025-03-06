@@ -182,13 +182,12 @@ A classe `GithubRelease` contém os seguintes campos:
 
 O `JGR-UChecker` depende de:
 
-- **Lombok**: Para reduzir o código boilerplate, como `@Data`, `@ToString`, entre outros.
 - **json-simple**: Para fazer o parse do JSON retornado pela API do GitHub.
 
 ## 🔗 Links Úteis
 
 - [GitHub do Projeto](https://github.com/theprogmatheus/JGR-UChecker)
-- [GitHub Packages](https://maven.pkg.github.com/theprogmatheus/JGR-UChecker)
+- [GitHub Packages](https://github.com/theprogmatheus/JGR-UChecker/packages)
 
 ## 📝 Licença
 

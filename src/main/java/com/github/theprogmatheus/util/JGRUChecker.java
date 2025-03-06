@@ -1,8 +1,5 @@
 package com.github.theprogmatheus.util;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.ToString;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -17,15 +14,14 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
-@Data
 public class JGRUChecker {
 
     private static final boolean disabled = System.getProperty("com.github.theprogmatheus.util.JGRUChecker.disabled") != null;
     private static final String apiUrl = "https://api.github.com/repos/%s/%s/releases/latest";
 
-    private String username;
-    private String repositoryName;
-    private String currentVersion;
+    private final String username;
+    private final String repositoryName;
+    private final String currentVersion;
 
     private transient CompletableFuture<GithubRelease> lastReleaseFuture;
 
@@ -84,14 +80,56 @@ public class JGRUChecker {
         return lastRelease != null && !lastRelease.getVersion().equals(this.currentVersion);
     }
 
-    @Data
-    @AllArgsConstructor
-    @ToString
+    public String getUsername() {
+        return username;
+    }
+
+    public String getRepositoryName() {
+        return repositoryName;
+    }
+
+    public String getCurrentVersion() {
+        return currentVersion;
+    }
+
     public static class GithubRelease {
-        private String id;
-        private String name;
-        private String version;
-        private String downloadPage;
+        private final String id;
+        private final String name;
+        private final String version;
+        private final String downloadPage;
+
+        protected GithubRelease(String id, String name, String version, String downloadPage) {
+            this.id = id;
+            this.name = name;
+            this.version = version;
+            this.downloadPage = downloadPage;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getVersion() {
+            return version;
+        }
+
+        public String getDownloadPage() {
+            return downloadPage;
+        }
+
+        @Override
+        public String toString() {
+            return "GithubRelease{" +
+                    "id='" + id + '\'' +
+                    ", name='" + name + '\'' +
+                    ", version='" + version + '\'' +
+                    ", downloadPage='" + downloadPage + '\'' +
+                    '}';
+        }
     }
 
 }
