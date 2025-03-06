@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.theprogmatheus:JGR-UChecker:1.0.0-alpha'
+    implementation 'com.github.theprogmatheus:jgr-uchecker:{version}'
 }
 ```
 
@@ -46,8 +46,8 @@ dependencies {
 <dependencies>
     <dependency>
         <groupId>com.github.theprogmatheus</groupId>
-        <artifactId>JGR-UChecker</artifactId>
-        <version>1.0.0-alpha</version>
+        <artifactId>jgr-uchecker</artifactId>
+        <version>{version}</version>
     </dependency>
 </dependencies>
 
