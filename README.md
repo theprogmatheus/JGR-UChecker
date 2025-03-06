@@ -12,85 +12,39 @@
 
 ### 1. Adicionando a dependência no seu projeto
 
-Adicione o seguinte trecho no arquivo `build.gradle` (para Gradle) ou `pom.xml` (para Maven) para incluir a biblioteca `JGR-UChecker` diretamente do GitHub Packages:
+Adicione o seguinte trecho no arquivo `build.gradle` (para Gradle) ou `pom.xml` (para Maven) para incluir a biblioteca `JGR-UChecker` no seu projeto:
 
 #### **Para projetos com Gradle:**
 
 ```groovy
 repositories {
-    mavenCentral()
     maven {
-        url = uri("https://maven.pkg.github.com/theprogmatheus/JGR-UChecker")
-        credentials {
-            username = project.findProperty("gpr.username") ?: System.getenv("GITHUB_USERNAME")
-            password = project.findProperty("gpr.token") ?: System.getenv("GITHUB_TOKEN")
-        }
+        url "https://raw.githubusercontent.com/theprogmatheus/maven-repository/master/"
     }
 }
-
 dependencies {
     implementation 'com.github.theprogmatheus:jgr-uchecker:{version}'
 }
 ```
+> **Nota:** Substitua {version} pela versão desejada do JGR-UChecker
 
 #### **Para projetos com Maven:**
 
 ```xml
 <repositories>
     <repository>
-        <id>github</id>
-        <url>https://maven.pkg.github.com/theprogmatheus/JGR-UChecker</url>
+        <id>github-theprogmatheus-maven-repository</id>
+        <url>https://raw.githubusercontent.com/theprogmatheus/maven-repository/master/</url>
     </repository>
 </repositories>
 
-<dependencies>
-    <dependency>
-        <groupId>com.github.theprogmatheus</groupId>
-        <artifactId>jgr-uchecker</artifactId>
-        <version>{version}</version>
-    </dependency>
-</dependencies>
-
-<pluginRepositories>
-    <pluginRepository>
-        <id>github</id>
-        <url>https://maven.pkg.github.com/theprogmatheus/JGR-UChecker</url>
-    </pluginRepository>
-</pluginRepositories>
+<dependency>
+    <groupId>com.github.theprogmatheus</groupId>
+    <artifactId>jgr-uchecker</artifactId>
+    <version>{version}</version>
+</dependency>
 ```
-
-#### **Autenticação no GitHub Packages:**
-
-GitHub Packages exige autenticação para acessar os pacotes. Para poder usar esta dependência, você precisará adicionar suas credenciais do GitHub (nome de usuário e token) no seu arquivo `~/.m2/settings.xml` (para Maven) ou como propriedades no seu `build.gradle` (para Gradle).
-
-Aqui está um exemplo de como configurar a autenticação no **Maven**:
-
-```xml
-<servers>
-    <server>
-        <id>github</id>
-        <username>seu-usuario-github</username>
-        <password>seu-token-pessoal-do-github</password>
-    </server>
-</servers>
-```
-
-Ou no **Gradle**:
-
-```groovy
-repositories {
-    maven {
-        url = uri("https://maven.pkg.github.com/theprogmatheus/JGR-UChecker")
-        credentials {
-            username = project.findProperty("gpr.username") ?: System.getenv("GITHUB_USERNAME")
-            password = project.findProperty("gpr.token") ?: System.getenv("GITHUB_TOKEN")
-        }
-    }
-}
-```
-
-#### **Importante:**
-A autenticação no GitHub é **obrigatória** para usar o GitHub Packages. Sem ela, você não conseguirá baixar ou utilizar o projeto. 💡
+> **Nota:** Substitua {version} pela versão desejada do JGR-UChecker
 
 ### 2. Exemplo de Uso
 
@@ -187,7 +141,6 @@ O `JGR-UChecker` depende de:
 ## 🔗 Links Úteis
 
 - [GitHub do Projeto](https://github.com/theprogmatheus/JGR-UChecker)
-- [GitHub Packages](https://github.com/theprogmatheus/JGR-UChecker/packages)
 
 ## 📝 Licença
 
